@@ -19,6 +19,7 @@ const ImageGallery = () => {
                 images={images}
                 setImages={setImages}
                 disSelectedAll={disSelectedAll}
+                setDisSelectedAll={setDisSelectedAll}
             ></GalleryImages>
         </div>
     );

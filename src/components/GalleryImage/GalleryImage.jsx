@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-const GalleryImage = ({ setImages, image, disSelectedAll }) => {
+const GalleryImage = ({
+    setImages,
+    image,
+    disSelectedAll,
+    setDisSelectedAll,
+}) => {
     const [isChecked, setIsChecked] = useState(false);
     const [isHover, setIsHovered] = useState(false);
 
@@ -15,10 +20,9 @@ const GalleryImage = ({ setImages, image, disSelectedAll }) => {
         );
     };
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         if (disSelectedAll) setIsChecked((isChecked) => (isChecked = false));
-    }, [disSelectedAll]);
+    }, [disSelectedAll, setDisSelectedAll]);
 
     const toggleCheckbox = () => {
         setIsChecked((isChecked) => !isChecked);

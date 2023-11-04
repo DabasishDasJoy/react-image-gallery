@@ -23,7 +23,7 @@ const GalleryHeader = ({ checkedCount, setImages, setDisSelectedAll }) => {
         } else {
             setIsChecked((isChecked) => (isChecked = false));
         }
-    }, [checkedCount]);
+    }, [checkedCount, setDisSelectedAll]);
 
     const deleteFiles = () => {
         setImages((prevImages) => prevImages.filter((image) => !image.checked));

@@ -3,7 +3,12 @@ import React from 'react';
 import AddNewImage from '../AddNewImage/AddNewImage';
 import GalleryImage from '../GalleryImage/GalleryImage';
 
-const GalleryImages = ({ images, setImages, disSelectedAll }) => {
+const GalleryImages = ({
+    images,
+    setImages,
+    disSelectedAll,
+    setDisSelectedAll,
+}) => {
     return (
         <div className="grid grid-cols-5 gap-3 p-5">
             {images.length > 0 && (
@@ -14,6 +19,7 @@ const GalleryImages = ({ images, setImages, disSelectedAll }) => {
                             image={images[0]}
                             setImages={setImages}
                             disSelectedAll={disSelectedAll}
+                            setDisSelectedAll={setDisSelectedAll}
                         />
                     )}
                 </div>
@@ -25,6 +31,7 @@ const GalleryImages = ({ images, setImages, disSelectedAll }) => {
                     image={image}
                     setImages={setImages}
                     disSelectedAll={disSelectedAll}
+                    setDisSelectedAll={setDisSelectedAll}
                 ></GalleryImage>
             ))}
 
