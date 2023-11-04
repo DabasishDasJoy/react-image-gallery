@@ -19,21 +19,31 @@ const GalleryHeader = ({ checkedCount, setImages }) => {
     return (
         <div className="flex justify-between border-b-[2px] border-gray-200 px-5 py-2">
             <div className="flex space-x-2">
-                <input
-                    type="checkbox"
-                    checked={checkedCount}
-                    onClick={() => toggleCheckAll(checkedCount)}
-                ></input>
+                {checkedCount > 0 && (
+                    <input
+                        type="checkbox"
+                        checked={checkedCount}
+                        onClick={() => toggleCheckAll(checkedCount)}
+                    ></input>
+                )}
+
                 <span className="font-medium text-gray-800">
-                    {checkedCount} Files Selected
+                    {checkedCount
+                        ? `${checkedCount} ${
+                              checkedCount > 1 ? 'Files' : 'File'
+                          }
+                    Selected `
+                        : 'Gallery'}
                 </span>
             </div>
-            <button
-                className="text-red-500 font-medium text-sm"
-                onClick={deleteFiles}
-            >
-                Delete Files
-            </button>
+            {checkedCount > 0 && (
+                <button
+                    className="text-red-500 font-medium text-sm hover:underline"
+                    onClick={deleteFiles}
+                >
+                    Delete Files
+                </button>
+            )}
         </div>
     );
 };
