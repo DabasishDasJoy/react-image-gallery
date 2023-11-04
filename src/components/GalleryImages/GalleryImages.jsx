@@ -3,7 +3,7 @@ import React from 'react';
 import AddNewImage from '../AddNewImage/AddNewImage';
 import GalleryImage from '../GalleryImage/GalleryImage';
 
-const GalleryImages = ({ images, setImages }) => {
+const GalleryImages = ({ images, setImages, disSelectedAll }) => {
     return (
         <div className="grid grid-cols-5 gap-3 p-5">
             <div className="border rounded-md col-span-2 row-span-2">
@@ -12,6 +12,7 @@ const GalleryImages = ({ images, setImages }) => {
                         key={images[0].id}
                         image={images[0]}
                         setImages={setImages}
+                        disSelectedAll={disSelectedAll}
                     />
                 )}
             </div>
@@ -20,6 +21,7 @@ const GalleryImages = ({ images, setImages }) => {
                     key={image?.id}
                     image={image}
                     setImages={setImages}
+                    disSelectedAll={disSelectedAll}
                 ></GalleryImage>
             ))}
 

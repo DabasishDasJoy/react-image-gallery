@@ -5,6 +5,7 @@ import data from '../../local-data/images.json';
 
 const ImageGallery = () => {
     const [images, setImages] = useState(data);
+    const [disSelectedAll, setDisSelectedAll] = useState(false);
     const checkedCount = images.filter((image) => image.checked).length;
 
     return (
@@ -12,10 +13,12 @@ const ImageGallery = () => {
             <GalleryHeader
                 checkedCount={checkedCount}
                 setImages={setImages}
+                setDisSelectedAll={setDisSelectedAll}
             ></GalleryHeader>
             <GalleryImages
                 images={images}
                 setImages={setImages}
+                disSelectedAll={disSelectedAll}
             ></GalleryImages>
         </div>
     );

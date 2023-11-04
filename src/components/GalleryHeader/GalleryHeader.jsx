@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const GalleryHeader = ({ checkedCount, setImages }) => {
-    const toggleCheckAll = (checkedCount) => {
+const GalleryHeader = ({ checkedCount, setImages, setDisSelectedAll }) => {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const toggleCheckAll = () => {
         let checked = false;
         if (!checkedCount) checked = true;
 
@@ -10,7 +12,18 @@ const GalleryHeader = ({ checkedCount, setImages }) => {
                 return { ...image, checked: checked };
             })
         );
+
+        setDisSelectedAll(true);
     };
+
+    useEffect(() => {
+        if (checkedCount > 0) {
+            setIsChecked((isChecked) => (isChecked = true));
+            setDisSelectedAll(false);
+        } else {
+            setIsChecked((isChecked) => (isChecked = false));
+        }
+    }, [checkedCount]);
 
     const deleteFiles = () => {
         setImages((prevImages) => prevImages.filter((image) => !image.checked));
@@ -22,8 +35,8 @@ const GalleryHeader = ({ checkedCount, setImages }) => {
                 {checkedCount > 0 && (
                     <input
                         type="checkbox"
-                        checked={checkedCount}
-                        onClick={() => toggleCheckAll(checkedCount)}
+                        checked={isChecked}
+                        onChange={toggleCheckAll}
                     ></input>
                 )}
 
