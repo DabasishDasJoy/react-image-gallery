@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const GalleryImage = ({
-    setImages,
-    image,
-    disSelectedAll,
-    setDisSelectedAll,
-}) => {
+const GalleryImage = ({ setImages, image, disSelectedAll }) => {
     const [isChecked, setIsChecked] = useState(false);
     const [isHover, setIsHovered] = useState(false);
 
@@ -22,7 +17,7 @@ const GalleryImage = ({
 
     useEffect(() => {
         if (disSelectedAll) setIsChecked((isChecked) => (isChecked = false));
-    }, [disSelectedAll, setDisSelectedAll]);
+    }, [disSelectedAll]);
 
     const toggleCheckbox = () => {
         setIsChecked((isChecked) => !isChecked);

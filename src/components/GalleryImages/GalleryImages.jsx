@@ -10,9 +10,9 @@ const GalleryImages = ({
     setDisSelectedAll,
 }) => {
     return (
-        <div className="grid grid-cols-5 gap-3 p-5">
+        <div className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-3 p-5">
             {images.length > 0 && (
-                <div className="border rounded-md col-span-2 row-span-2">
+                <div className="border rounded-md md:col-span-2 row-span-2">
                     {images?.length > 0 && (
                         <GalleryImage
                             key={images[0].id}
