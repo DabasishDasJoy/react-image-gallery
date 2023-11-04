@@ -1,44 +1,26 @@
 import React from 'react';
 
-const GalleryImages = () => {
+import GalleryImage from '../GalleryImage/GalleryImage';
+
+const GalleryImages = ({ images, setImages }) => {
     return (
-        <div className="grid grid-cols-5">
-            <div className="border border-red-400 rounded-sm col-span-2 row-span-2">
-                <h1>Gallery</h1>
+        <div className="grid grid-cols-5 gap-3 p-5">
+            <div className="border rounded-sm col-span-2 row-span-2">
+                {images?.length > 0 && (
+                    <GalleryImage
+                        key={images[0].id}
+                        image={images[0]}
+                        setImages={setImages}
+                    />
+                )}
             </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
-            <div className="border border-red-400 rounded-sm">
-                <h1>Gallery</h1>
-            </div>
+            {images?.slice(1)?.map((image) => (
+                <GalleryImage
+                    key={image?.id}
+                    image={image}
+                    setImages={setImages}
+                ></GalleryImage>
+            ))}
         </div>
     );
 };
