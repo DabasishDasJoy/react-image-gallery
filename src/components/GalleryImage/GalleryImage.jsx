@@ -15,6 +15,7 @@ const GalleryImage = ({ setImages, image, disSelectedAll }) => {
         );
     };
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         if (disSelectedAll) setIsChecked((isChecked) => (isChecked = false));
     }, [disSelectedAll]);
